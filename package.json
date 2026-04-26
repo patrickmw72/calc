@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx src/calculator.ts"
+    "dev": "tsx src/calculator.ts",
+    "build": "tsc",
+    "start": "node dist/calculator.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
   }
 }

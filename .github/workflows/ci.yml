@@ -23,8 +23,11 @@ jobs:
       - name: "Check env"
         run: env
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Type check
+        run: npm run typecheck
 
-      - name: Run calculator
-        run: npx tsx src/calculator.ts <<< "2+2"
+      - name: Build
+        run: npm run build
+
+      - name: Run basic test
+        run: node dist/calculator.js "2+2"
