@@ -20,6 +20,9 @@ jobs:
       - name: Verify lockfile exists
         run: ls -la package-lock.json
 
+      - name: Print random check
+        run: echo "Hello Worlds"
+
       - name: Install dependencies
         run: npm ci
 
