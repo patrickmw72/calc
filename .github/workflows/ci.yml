@@ -1,4 +1,4 @@
-name: Deploy to DEV
+name: CI
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      BASIC_ENV: basic-env
 
     steps:
       - name: Checkout repo
@@ -34,3 +37,6 @@ jobs:
 
       - name: Run basic test
         run: node dist/calculator.js "2+2"
+
+      - name: Using given variables
+        run: echo "Branch is on ${{ github.ref }}" && echo "basic env> $BASIC_ENV"
