@@ -1,42 +1,42 @@
-name: CI
+# name: CI
 
 # on:
 #   push:
 #   pull_request:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    env:
-      BASIC_ENV: basic-env
+#     env:
+#       BASIC_ENV: basic-env
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+#       - name: Setup Node
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 20
 
-      - name: "Install Dependencies"
-        run: npm ci
+#       - name: "Install Dependencies"
+#         run: npm ci
 
-      - name: Type check
-        run: npm run typecheck
+#       - name: Type check
+#         run: npm run typecheck
 
-      - name: XXXXXXXXXXXXX
-        run: chmod +x random.sh && ./random.sh
+#       - name: XXXXXXXXXXXXX
+#         run: chmod +x random.sh && ./random.sh
 
-      - name: Lint
-        run: npm run lint
+#       - name: Lint
+#         run: npm run lint
 
-      - name: Build
-        run: npm run build
+#       - name: Build
+#         run: npm run build
 
-      - name: Run basic test
-        run: node dist/calculator.js "2+2"
+#       - name: Run basic test
+#         run: node dist/calculator.js "2+2"
 
-      - name: Using given variables
-        run: echo "Branch is on ${{ github.ref }}" && echo "basic env> $BASIC_ENV"
+#       - name: Using given variables
+#         run: echo "Branch is on ${{ github.ref }}" && echo "basic env> $BASIC_ENV"
