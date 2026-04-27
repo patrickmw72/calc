@@ -1,0 +1,21 @@
+name: CI series-2
+
+on:
+  push:
+  pull_request:
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    # STEP OUTPUTS
+    steps: 
+      - name: Set Output
+        id: 1
+        run: echo "value=42" >> $GITHUB_OUTPUT
+
+      - name: Use Output
+        id: 2
+        run: echo "{{ steps.step1.outputs.value }}"
+
+      
