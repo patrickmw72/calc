@@ -39,4 +39,8 @@
 #         run: node dist/calculator.js "2+2"
 
 #       - name: Using given variables
-#         run: echo "Branch is on ${{ github.ref }}" && echo "basic env> $BASIC_ENV"
+#         run: echo "Branch is on ${{ github.ref }}" && echo "basic env> $B
+
+
+
+    

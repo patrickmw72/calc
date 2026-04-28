@@ -11,14 +11,14 @@ jobs:
     # STEP OUTPUTS
     steps: 
       - name: Set Output
-        id: 1
+        id: a
         run: echo "value=42" >> $GITHUB_OUTPUT
 
       - name: Use Output
-        id: 2
-        run: echo "{{ steps.step1.outputs.value }}"
+        id: b
+        run: echo "{{ steps.a.outputs.value }}"
 
-  job2:
+  build:
     runs-on: ubuntu-latest
 
     outputs: 
@@ -28,8 +28,10 @@ jobs:
         id: v
         run: echo "version=1.0.0" >> $GITHUB_OUTPUT
 
-      - name:
-        id: 2
-        run:
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest 
       
+    steps: 
+      - name: Use build variables
+        run: echo "${{ needs.build.outputs.version }}"
